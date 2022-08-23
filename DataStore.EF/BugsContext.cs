@@ -18,7 +18,8 @@ namespace DataStore.EF
         {
             modelBuilder.Entity<Project>()
                 .HasMany(p => p.Tickets)
-                .WithOne(t => t.Project);
+                .WithOne(t => t.Project)
+                .HasForeignKey(t => t.ProjectId);
 
             //seeding
             modelBuilder.Entity<Project>().HasData(
